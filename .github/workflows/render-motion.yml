@@ -1,0 +1,39 @@
+name: Render Motion Graphics Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      scene_id:
+        description: "Motion Scene Identifier"
+        required: true
+        default: "scene_mwhz4cbo_5f5e"
+      resolution:
+        description: "Target Output Resolution"
+        required: false
+        default: "1280x720"
+
+jobs:
+  render-motion:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install Remotion & FFmpeg dependencies
+        run: npm ci
+
+      - name: Render Motion Composition (60s @ 30fps)
+        run: npx remotion render src/motion/index.ts MotionComposition out/scene_mwhz4cbo_5f5e.mp4 --codec=h264
+
+      - name: Upload Rendered Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: motion-video-scene_mwhz4cbo_5f5e
+          path: out/scene_mwhz4cbo_5f5e.mp4
+          retention-days: 14
