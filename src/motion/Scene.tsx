@@ -2,10 +2,10 @@ import React from 'react';
 import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
 
 export const SCENE_CONFIG = {
-  "id": "scene_mwhyyz2c_tfbw",
+  "id": "scene_mwhyzq76_92ka",
   "title": "تطور وكلاء الذكاء الاصطناعي",
-  "subtitle": "من قواعد ثابتة... إلى وكلاء ذاتيين يفكرون ويتصرفون",
-  "kicker": "وثائقي تعليمي",
+  "subtitle": "من نموذج لغوي بسيط إلى وكيل ذاتي التشغيل يخطط وينفّذ ويتعلّم",
+  "kicker": "وثائقي تعليمي — AI Agents Evolution",
   "template": "architecture-flow",
   "visualStyle": "tech-blueprint",
   "durationInFrames": 1800,
@@ -16,7 +16,7 @@ export const SCENE_CONFIG = {
     "background": "#071324",
     "surface": "#0D1F38",
     "primary": "#38BDF8",
-    "accent": "#22D3EE",
+    "accent": "#F59E0B",
     "text": "#F0F9FF",
     "muted": "#7DD3FC"
   },
@@ -60,8 +60,8 @@ export const MotionComposition: React.FC = () => {
         justifyContent: 'center',
       }}
     >
-      <div style={{ color: '#22D3EE', fontSize: 18, letterSpacing: 3, fontWeight: 600 }}>
-        وثائقي تعليمي
+      <div style={{ color: '#F59E0B', fontSize: 18, letterSpacing: 3, fontWeight: 600 }}>
+        وثائقي تعليمي — AI Agents Evolution
       </div>
       <h1
         style={{
@@ -75,7 +75,7 @@ export const MotionComposition: React.FC = () => {
         تطور وكلاء الذكاء الاصطناعي
       </h1>
       <p style={{ fontSize: 28, color: '#7DD3FC', opacity: subtitleOpacity, maxWidth: 880 }}>
-        من قواعد ثابتة... إلى وكلاء ذاتيين يفكرون ويتصرفون
+        من نموذج لغوي بسيط إلى وكيل ذاتي التشغيل يخطط وينفّذ ويتعلّم
       </p>
       <div style={{ marginTop: 40, width: `${barWidth}%`, height: 4, backgroundColor: '#38BDF8' }} />
     </AbsoluteFill>
