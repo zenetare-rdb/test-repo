@@ -1,0 +1,35 @@
+name: Render Motion Video
+
+on:
+  workflow_dispatch:
+    inputs:
+      sceneId:
+        description: 'Scene id to render'
+        required: false
+        default: 'hello-motion'
+
+jobs:
+  render:
+    name: Render MP4 with Remotion
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: npm install remotion @remotion/cli react react-dom typescript
+
+      - name: Render video
+        run: npx remotion render src/index.ts HelloMotion out/video.mp4
+
+      - name: Upload video artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: motion-video-${{ github.event.inputs.sceneId }}
+          path: out/video.mp4
+          if-no-files-found: error
