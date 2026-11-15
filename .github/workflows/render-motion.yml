@@ -6,7 +6,7 @@ on:
       scene_id:
         description: "Motion Scene Identifier"
         required: true
-        default: "scene_mwhyyz2c_tfbw"
+        default: "scene_mwhyzq76_92ka"
       resolution:
         description: "Target Output Resolution"
         required: false
@@ -29,11 +29,11 @@ jobs:
         run: npm ci
 
       - name: Render Motion Composition (60s @ 30fps)
-        run: npx remotion render src/motion/index.ts MotionComposition out/scene_mwhyyz2c_tfbw.mp4 --codec=h264
+        run: npx remotion render src/motion/index.ts MotionComposition out/scene_mwhyzq76_92ka.mp4 --codec=h264
 
       - name: Upload Rendered Video Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: motion-video-scene_mwhyyz2c_tfbw
-          path: out/scene_mwhyyz2c_tfbw.mp4
+          name: motion-video-scene_mwhyzq76_92ka
+          path: out/scene_mwhyzq76_92ka.mp4
           retention-days: 14
